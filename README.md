@@ -1,5 +1,7 @@
 # React Flow Library Spike
 
+![react-flow-model-builder](https://github.com/igor-franca/react-flow-model-builder/assets/61854510/b1a482e7-21aa-4738-8fb8-b4fbbd0e8b0c)
+
 Welcome to the React Flow Library tutorial! In this tutorial, you will learn how to use the React Flow library to create and manipulate edges and nodes in your React applications. We will be using the `yarn` package manager for this tutorial.
 
 ## Prerequisites
