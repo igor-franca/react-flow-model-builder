@@ -1,4 +1,4 @@
-import ReactFlow, { Background, Connection, ConnectionMode, Controls, Node, addEdge, useEdgesState, useNodesState } from 'reactflow';
+import ReactFlow, { MiniMap, Background, Connection, ConnectionMode, Controls, Node, addEdge, useEdgesState, useNodesState } from 'reactflow';
 import {zinc} from 'tailwindcss/colors';
 import 'reactflow/dist/style.css';
 
@@ -6,9 +6,6 @@ import DefaultEdge from './components/edges/DefaultEdge'
 
 import { Square } from './components/nodes/Square';
 import { useCallback } from 'react';
-
-// Nodes, Edges
-
 
 const NODE_TYPES = {
   square: Square,
@@ -30,6 +27,12 @@ const INITIAL_NODES = [
       objectDefinitionLabel : "Employee",
       objectFields:[
         {
+          label: 'Department',
+          relationships: [],
+          forestKey: false,
+          primaryKey: false,
+        },
+        {
           label: 'ERC',
           relationships: [],
           forestKey: false,
@@ -48,11 +51,17 @@ const INITIAL_NODES = [
           primaryKey: false,
         },
         {
-          label: 'Department',
+          label: 'Field 5',
           relationships: [],
-          forestKey: true,
+          forestKey: false,
           primaryKey: false,
-        }
+        },
+        {
+          label: 'Field 6',
+          relationships: [],
+          forestKey: false,
+          primaryKey: false,
+        },
       ]
     }
   },
@@ -83,41 +92,28 @@ const INITIAL_NODES = [
           relationships: [],
           forestKey: false,
           primaryKey: false,
-        }
-      ]
-    }
-  },
-  {
-    id: crypto.randomUUID(),
-    type: 'square',
-    position: {
-      x: 800,
-      y: 600,
-    },
-    data: {
-      objectDefinitionLabel: "Locale",
-      objectFields:[
-        {
-          label: 'Name',
-          relationships: [],
-          forestKey: false,
-          primaryKey: true,
         },
         {
-          label: 'Country',
+          label: 'Field 4',
           relationships: [],
           forestKey: false,
           primaryKey: false,
         },
         {
-          label: 'State',
+          label: 'Field 5',
+          relationships: [],
+          forestKey: false,
+          primaryKey: false,
+        },
+        {
+          label: 'Field 5',
           relationships: [],
           forestKey: false,
           primaryKey: false,
         }
       ]
     }
-  },
+  }
 ] satisfies Node[];
 
 function App() {
@@ -149,6 +145,7 @@ function App() {
           color={zinc[200]}
         />
         <Controls />
+        <MiniMap />
       </ReactFlow>
     </div>
   )
