@@ -1,5 +1,4 @@
 import { BaseEdge, EdgeLabelRenderer, EdgeProps, getSmoothStepPath } from 'reactflow';
-import { green, red } from 'tailwindcss/colors';
 
 export default function DefaultEdge({
   id,
@@ -23,7 +22,7 @@ export default function DefaultEdge({
 
   return (
     <>
-      <BaseEdge path={edgePath} markerEnd={markerEnd} style={style} />
+      <BaseEdge label={"Relationship"} path={edgePath} markerEnd={markerEnd} style={style} />
     </>
   );
 }

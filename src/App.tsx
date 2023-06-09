@@ -1,4 +1,4 @@
-import ReactFlow, { MiniMap, Background, Connection, ConnectionMode, Controls, Node, addEdge, useEdgesState, useNodesState } from 'reactflow';
+import ReactFlow, { MiniMap, Background, Connection, ConnectionMode, Controls, Node, addEdge, useEdgesState, useNodesState, Position } from 'reactflow';
 import {zinc} from 'tailwindcss/colors';
 import 'reactflow/dist/style.css';
 
@@ -17,103 +17,35 @@ const EDGE_TYPES = {
 
 const INITIAL_NODES = [
   {
-    id: crypto.randomUUID(),
-    type: 'square',
-    position: {
-      x: 200,
-      y: 400,
+    id: 'A',
+    type: 'group',
+    data: { label: '' },
+    position: { x: 200, y: 200 },
+    style: {
+      width: 150,
+      height: 140,
     },
-    data: {
-      objectDefinitionLabel : "Employee",
-      objectFields:[
-        {
-          label: 'Department',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'ERC',
-          relationships: [],
-          forestKey: false,
-          primaryKey: true,
-        },
-        {
-          label: 'Name',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Age',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Field 5',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Field 6',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-      ]
-    }
   },
   {
-    id: crypto.randomUUID(),
-    type: 'square',
-    position: {
-      x: 1000,
-      y: 400,
-    },
-    data: {
-      objectDefinitionLabel: "Department",
-      objectFields:[
-        {
-          label: 'ERC',
-          relationships: [],
-          forestKey: false,
-          primaryKey: true,
-        },
-        {
-          label: 'Name',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'State',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Field 4',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Field 5',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        },
-        {
-          label: 'Field 5',
-          relationships: [],
-          forestKey: false,
-          primaryKey: false,
-        }
-      ]
-    }
-  }
+    id: 'B',
+    type: 'input',
+    targetPosition: Position.Right,
+    sourcePosition: Position.Left,
+    data: { label: 'child node 1' },
+    position: { x: 0, y: 0 },
+    parentNode: 'A',
+    extent: 'parent',
+  },
+  {
+    id: 'C',
+    type: 'input',
+    targetPosition: Position.Right,
+    sourcePosition: Position.Left,
+    data: { label: 'child node 2' },
+    position: { x: 0, y: 40 },
+    parentNode: 'A',
+    extent: 'parent',
+  },
 ] satisfies Node[];
 
 function App() {
